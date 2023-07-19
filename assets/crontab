@@ -1,0 +1,1 @@
+@reboot cd /home/pi/Dokumen && /usr/bin/python3 anthenamonitor.py >> /home/pi/firebase_log.txt 2>&1
