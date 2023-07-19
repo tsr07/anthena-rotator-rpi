@@ -1,0 +1,337 @@
+ls
+cd Dokumen/
+ls
+chmod +x test_mpu.py 
+python test_mpu.py 
+chmod +x test_mpu.py 
+python test_mpu.py 
+i2cdetect -y 1
+cd
+ls
+cdd Dokumen/
+cd Dokumen/
+geany test_mpu.py 
+ls
+cd Dokumen/
+ls
+cat test_mpu.py 
+nano test_mpu.py 
+ls
+touch bts7960.py
+nano bts7960.py 
+geany bts7960.py 
+python3 bts7960.py 
+geany bts7960.py 
+sudo apt install terminator
+ls
+cd Dokumen/
+ls
+
+ls
+python3 bts7960.py 
+ls
+sudo chmod +x bts7960.py 
+python3 bts7960.py 
+geany bts7960.py 
+nano  .bashrc 
+sudo crontab -e
+sudo nano /etc/rc.local
+sudo crontab -e
+reboot
+ls
+cd Dokumen/
+ls
+cd ..
+ls
+cd pi/
+ls
+cd Dokumen/
+ls
+pwd
+ls
+ps aux
+ps aux | grep py
+ps aux | grep bts
+cd Dokumen/
+python3 bts7960.py 
+reboot
+sudo kill 432
+ps aux
+ps aux | grep bts
+sudo kill 459 
+sudo kill 458
+reboot
+ps aux | grep bts
+sudo kill 445
+cd Dokumen/
+ls
+python3 bts7960.py 
+ps aux | grep bts
+reboot
+ps aux | grep bts
+sudo kill 481
+sudo nano .bashrc 
+motor
+motor
+sudo nano .bashrc 
+bts
+sudo nano .bashrc 
+bts
+sudo nano .bashrc 
+bts
+sudo nano .bashrc 
+ls
+cd Dokumen/
+ls
+reboot 
+bts
+nano .bashrc 
+motor
+bts
+sudo  kill 439
+motor
+poweroff 
+pip install firebase-admin
+sudo pip install firebase-admin
+pip3 install --no-binary :all: cryptography
+sudo pip install firebase-admin
+sudo apt install build-essential libssl-dev libffi-dev python3-dev
+sudo pip install firebase-admin
+pip3 install --upgrade pip
+sudo pip install firebase-admin
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rustc --version
+sudo pip install firebase-admin
+bts
+cd Dokumen/
+ls
+geany  bts7960.py 
+ls
+cd ..
+ls
+bts
+sudo kill 452
+ls
+motor
+cd
+sudo nano .bashrc 
+ls
+chmod +x
+chmod +x anthenamonitor.py 
+ls
+python anthenamonitor.py 
+cat antenaproject-firebase.json 
+geany antenaproject-firebase.json 
+cd ..
+ls
+cd AntenaProject/
+ls
+cat antenaproject-firebase.json 
+python anthenamonitor.py 
+pip3 install firebase-admin
+ls
+cd Unduhan/
+ls
+cd AntenaProject/
+ls
+cat main.py 
+geany main.py 
+ls
+cd ..
+ls
+cat main.py 
+ls
+mv main.py anthenamonitor.py
+ls
+cp anthenamonitor.py ~/Unduhan/AntenaProject
+ls
+cd AntenaProject/
+ls
+rm main.py 
+mv antenaproject-fab4e-firebase-adminsdk-medhc-6f34e17311.json antenaproject-firebase.json
+ks
+las
+ls
+geany anthenamonitor.py 
+ls
+cd Dokumen/
+ls
+python3 anthenamonitor.py 
+sudo crontab -e 
+git clone https://github.com/garywill/linux-router.git
+sudo apt-get install props iproute2 dnsmasq iptables hostapd haveged
+nano linux_router .sh
+ls
+cd linux-router/
+nano linux_router .sh
+cd ..
+ls
+cd linux-router/
+ls
+cd ..
+nano linux-router.sh
+mv Linux router.sh
+mv linux_router.sh ~
+ls
+mv linux-router.sh ~
+crontab -e
+sudo crontab -e
+reboot 
+ps aux
+anthena
+bts
+sudo crontab -e
+bts
+sudo nano .bashrc 
+sudo crontab -e
+reboot 
+bts
+sudo crontab -e
+reboot 
+ps aux
+bts
+sudo crontab -e
+motor
+ls
+geany anthenamonitor.py 
+cat bts7960.py 
+ls
+motor 
+sudo crontab -e
+reboot
+bts
+sudo nano .bashrc 
+sudo crontab -e
+python3 /home/pi/Dokumen/anthenamonitor.py
+reboot 
+BTS
+bts
+sudo crontab -e
+reboot 
+bts
+sudo crontab -e
+ls
+cd Dokumen/
+ls
+reboot 
+\
+bts
+ps aux| grep bts
+sudo kill 460
+sudo crontab -e
+reboot 
+motor
+sudo crontab -e
+reboot 
+ps aux
+bts
+sudo crontab -e
+reboot 
+sudo crontab -e
+reboot 
+ifconfig
+motor
+ls
+cd Dokumen/
+l
+ls
+cat antenaproject-firebase.json 
+motor
+bts
+chmod +x anthenamonitor.py 
+chmod +x antenaproject-firebase.json 
+sudo crontab -e -u pi
+cd
+ls
+sudo crontab -e
+cd Dokumen/
+ls
+geany anthenamonitor.py 
+reboot 
+which python3
+sudo crontab -e
+bts
+ls
+cat firebase_log.txt 
+geany firebase_log.txt 
+sudo crontab  -e
+reboot 
+sudo crontab -e 
+reboot 
+ls
+cd 
+cd /
+ls
+clear
+ls
+cd lib
+ls
+cd ..
+ls
+cd bin
+ls
+clear
+ls
+clear
+ls
+cd ..
+ls
+clear
+ls
+cd
+ls
+clear
+ls
+clear
+ls
+slss
+sls
+ls
+sls
+l
+clear
+ls
+clear
+ls
+py
+python
+cd /usr/lib/python3/dist-packages/
+ls
+grep fire
+cd ,,
+cd ..
+ls
+clear
+ls
+cd ..ls
+ls
+cd ..
+ls
+cd python3.9/
+ls
+clear
+ls
+pip
+pip show firebase_admin
+cd /home/pi/.local/lib/python3.9/site-packages
+ls
+clear
+ls
+cd
+ls
+clear
+ls
+cd Dokumen/
+s
+ls
+clear
+ls
+sudo reboot 
+bts
+ps aux
+sudo reboot 
+sudo crontab -e 
+reboot
+cd /tmp/crontab.pkKFQG/
+sudo cd /tmp/crontab.pkKFQG/
+sudo su
