@@ -89,7 +89,7 @@ def bacaSudut() :
 	data = []
 	return	sudut_real
 	
-ALPHA = 0.8
+ALPHA = 0.7
 
 def low_pass_filter(current_value, previous_value):
     return (ALPHA * current_value) + ((1 - ALPHA) * previous_value)
@@ -99,6 +99,8 @@ counter = 0
 data_sudut_lama = 0
 data_sudut = 0
 
+waktu_lama = 0
+
 try:
     while True:
         data_sudut = bacaSudut()
@@ -106,17 +108,24 @@ try:
         
         print("Sudut Derajat: {:.2f} {:.2f}".format(data, data_sudut))
         data_sudut_lama = data
+        data = round(data,2)
         
         kiri = ref.child('kiri').get()
         kanan = ref.child('kanan').get()
-        ref.update({'degree' : data})
+        
+        if time.time() - waktu_lama > 0.5:
+            waktu_lama = time.time()
+            #print("update : {}  {}  degree: {}".format(waktu_lama, time.time()  , data))
+            ref.update({'degree' : data})
+          
 
         if kanan == "true" and kiri == "false":
             print("Speeding up " + str(counter), kanan)
             rpwm.ChangeDutyCycle(counter)
-            counter += 10
+            counter += 25
             if counter >= 50:
                 counter = 50
+                
         if kanan == "false" and kiri == "false":
             print("stop")
             rpwm.ChangeDutyCycle(0)
@@ -126,11 +135,11 @@ try:
             lpwm.start(0)
             print("Speeding up " + str(counter), kiri)
             lpwm.ChangeDutyCycle(counter)
-            counter += 10
+            counter += 25
             if counter >= 50:
                 counter = 50
 
-        time.sleep(0.1)
+        #time.sleep(0.1)
         
 except KeyboardInterrupt:
     print("Program dihentikan oleh pengguna.")
