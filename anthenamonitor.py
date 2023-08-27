@@ -65,7 +65,7 @@ rpwm.start(0)
 waktu_lama = 0
 PWM_VALUE = 20
 
-def read_angle():
+def read_angle(): #Fungsi untuk membaca sensor AS5600 dan mengubahnya menjadi nilai sudut
     # Membaca 2 byte data dari register sudut
     data = bus.read_i2c_block_data(AS5600_ADDRESS, REG_ANGLE, 2)
 
@@ -79,60 +79,63 @@ def read_angle():
 
 
 
-def map_value(value, from_low, from_high, to_low, to_high):
+def map_value(value, from_low, from_high, to_low, to_high): #Fungsi Mapping mengubah skala
     return (value - from_low) * (to_high - to_low) / (from_high - from_low) + to_low
 
 
 
-try:
+try:#Exception Keyboard Interrupt
     previous_input = db.reference('input_degree').get()
-    while True:
+    while True: #Looping ketika kondisi True
         sudut = read_angle()
         sudut = int(sudut)
 
-        # Mengambil data sudut yang diinginkan dari Firebase Realtime Database
+        # Mengambil input degree, state button kanan, dan state button kiri yang diinginkan dari Firebase Realtime Database
         target_degree = db.reference('input_degree').get()
         kiri = db.reference('kiri').get()
         kanan = db.reference('kanan').get()
 
-        if time.time() - waktu_lama > 0.25:
+        #Mengatur delay 0.25 detik untuk pengiriman data degree ke firebase agar tidak bertabrakan
+        if time.time() - waktu_lama > 0.25: #time.time() counting waktu
             waktu_lama = time.time()
             ref = db.reference()
             ref.update({'degree': sudut})
 
+        #Ketika Input Degree berubah
         if target_degree != previous_input:
             previous_input = target_degree
             if target_degree is not None:
-                while True:
+                while True: #Looping berkondisi True jika data input degree berubah
                     sudut = read_angle()
                     sudut = int(sudut)
                     error = int(eval(target_degree)) - sudut
                     print(f"target_degree: {target_degree} | degree: {sudut} | err: {error} | pwm: {PWM_VALUE}")
-                    if time.time() - waktu_lama > 0.5:
+                    if time.time() - waktu_lama > 0.5: #Mengatur delay 0.5 detik untuk pengiriman data degree ke firebase agar tidak bertabrakan 
                         waktu_lama = time.time()
                         ref = db.reference()
                         ref.update({'degree': sudut})
-                    if abs(error) > 0.8:
-                        if error > 0:
+                    if abs(error) > 0.8: #Batas error koreksi 0.8
+                        #Jika Error Koreksi lebih dari 0 maka PWM ke kanan
+                        if error > 0: #Jika Error lebih dari 0 maka PWM ke kanan
                             print("Gerakkan ke kanan")
                             rpwm.ChangeDutyCycle(PWM_VALUE)
                             lpwm.ChangeDutyCycle(0)
-                        # Tambahkan logika kendali motor untuk gerakan ke kiri
+                        #Jika Error koreksi lebih dari 0 maka PWM ke kiri
                         elif error < 0:
                             lpwm.start(0)
                             rpwm.ChangeDutyCycle(0)
                             lpwm.ChangeDutyCycle(PWM_VALUE)
                             print("Gerakkan ke kiri")
-                        # Tambahkan logika kendali motor untuk gerakan ke kanan
+                    
+                    #Jika batas error sudah tercapai maka motor berhenti 
                     else:
                         print("Sudut sudah tepat")
                         rpwm.ChangeDutyCycle(0)
                         lpwm.ChangeDutyCycle(0)
                         break
-                        # Tambahkan logika kendali motor untuk berhenti
-
+                 
+        #Jika data input Degree tidak berubah maka menggunakan State Button Kiri dan Kanan                
         else:
-
             if kanan == "true" and kiri == "false":
                 print("Speeding up {} ke kiri".format(PWM_VALUE))
                 lpwm.start(0)
@@ -150,20 +153,5 @@ try:
                 rpwm.ChangeDutyCycle(0)
                 lpwm.ChangeDutyCycle(0)
 
-except KeyboardInterrupt:
+except KeyboardInterrupt: #Exception Keyboard Interrupt handle untuk menginterup looping
     print("Program dihentikan oleh pengguna.")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
