@@ -94,8 +94,8 @@ try:
         target_degree = db.reference('input_degree').get()
         kiri = db.reference('kiri').get()
         kanan = db.reference('kanan').get()
-
-        if time.time() - waktu_lama > 0.25:
+        
+        if time.time() - waktu_lama > 0.5:
             waktu_lama = time.time()
             ref = db.reference()
             ref.update({'degree': sudut})
@@ -108,10 +108,21 @@ try:
                     sudut = int(sudut)
                     error = int(eval(target_degree)) - sudut
                     print(f"target_degree: {target_degree} | degree: {sudut} | err: {error} | pwm: {PWM_VALUE}")
+                    stop = db.reference('stop').get()
+                    
+                    if stop == 'true':
+                        #print("test")
+                        ref = db.reference()
+                        ref.update({'stop': 'false'})
+                        lpwm.ChangeDutyCycle(0)
+                        rpwm.ChangeDutyCycle(0)
+                        error = 0.8
+                   
                     if time.time() - waktu_lama > 0.5:
                         waktu_lama = time.time()
                         ref = db.reference()
                         ref.update({'degree': sudut})
+
                     if abs(error) > 0.8:
                         if error > 0:
                             print("Gerakkan ke kanan")
@@ -152,6 +163,7 @@ try:
 
 except KeyboardInterrupt:
     print("Program dihentikan oleh pengguna.")
+
 
 
 
